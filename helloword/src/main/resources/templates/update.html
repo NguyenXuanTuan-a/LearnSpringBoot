@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Update</title>
+</head>
+<body>
+	<form th:action="@{/update}" name="employe" method="post">
+		<input name="id" type="text" th:placeholder="${e.id}" />
+		<input name="name" type="text" th:placeholder="${e.name}"/>
+		<input name="role" type="text"  th:placeholder="${e.role}" />
+		<input type="submit" />
+	</form>  
+	<a th:href="@{/home}">Back</a>
+	<h1 th:text="${e.id}"></h1>
+	<h1 th:text="${e.name}"></h1>
+</body>
+</html>

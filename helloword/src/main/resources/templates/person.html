@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Person</title>
+</head>
+<body>
+	<h1 th:text="${person.id}"></h1>
+	<h1 th:text="${person.name}"></h1>
+	<h1 th:text="${person.age}"></h1>
+	<h1 th:text="${p1.id}"></h1>
+	<h1 th:text="${p1.name}"></h1>
+	<p>-----------------------------------</p>
+	<h1>List Person</h1>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Phan Loai</th>
+		</tr>
+		<tr th:each="p : ${per1}">
+			<td th:text="${p.id}"></td>
+			<td th:text="${p.name}"></td>
+			<td th:text="${p.age}"></td>
+			<td th:if="${p.age &gt;=45}">Gia</td>
+			<td th:if="${p.age &lt; 45 and p.age &gt;=25}">Trung nien</td>
+			<td th:if="${p.age &lt; 25}">Tre</td>
+		</tr>
+	</table>
+	<p>----------------------------------------------</p>
+	<form th:action="@{/addperson}" method="post">
+		<input name="id" type="text" />
+		<input name="name" type="text" />
+		<input name="age" type="text" />
+		<input type="submit" value="taomoi"/>
+	</form>
+</body>
+</html>
