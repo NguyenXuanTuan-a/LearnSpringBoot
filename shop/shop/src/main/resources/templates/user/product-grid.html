@@ -1,0 +1,304 @@
+<html th:replace="user/top :: top" ></html>  
+        <!-- End Header Area -->
+
+        <div class="body__overlay"></div>
+        <!-- Start Offset Wrapper -->
+        <div class="offset__wrapper">
+            <!-- Start Search Popap -->
+            <div class="search__area">
+                <div class="container" >
+                    <div class="row" >
+                        <div class="col-md-12" >
+                            <div class="search__inner">
+                                <form action="#" method="get">
+                                    <input placeholder="Search here... " type="text">
+                                    <button type="submit"></button>
+                                </form>
+                                <div class="search__close__btn">
+                                    <span class="search__close__btn_icon"><i class="zmdi zmdi-close"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Search Popap -->
+            <!-- Start Cart Panel -->
+            <div class="shopping__cart">
+                <div class="shopping__cart__inner">
+                    <div class="offsetmenu__close__btn">
+                        <a href="#"><i class="zmdi zmdi-close"></i></a>
+                    </div>
+                    <div class="shp__cart__wrap">
+                        <div class="shp__single__product">
+                            <div class="shp__pro__thumb">
+                                <a href="#">
+                                    <img src="images/product-2/sm-smg/1.jpg" alt="product images">
+                                </a>
+                            </div>
+                            <div class="shp__pro__details">
+                                <h2><a href="product-details.html">BO&Play Wireless Speaker</a></h2>
+                                <span class="quantity">QTY: 1</span>
+                                <span class="shp__price">$105.00</span>
+                            </div>
+                            <div class="remove__btn">
+                                <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
+                            </div>
+                        </div>
+                        <div class="shp__single__product">
+                            <div class="shp__pro__thumb">
+                                <a href="#">
+                                    <img src="images/product-2/sm-smg/2.jpg" alt="product images">
+                                </a>
+                            </div>
+                            <div class="shp__pro__details">
+                                <h2><a href="product-details.html">Brone Candle</a></h2>
+                                <span class="quantity">QTY: 1</span>
+                                <span class="shp__price">$25.00</span>
+                            </div>
+                            <div class="remove__btn">
+                                <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="shoping__total">
+                        <li class="subtotal">Subtotal:</li>
+                        <li class="total__price">$130.00</li>
+                    </ul>
+                    <ul class="shopping__btn">
+                        <li><a href="cart.html">View Cart</a></li>
+                        <li class="shp__checkout"><a href="checkout.html">Checkout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End Cart Panel -->
+        </div>
+        <!-- End Offset Wrapper -->
+        <!-- Start Bradcaump area -->
+        <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.jpg) no-repeat scroll center center / cover ;">
+            <div class="ht__bradcaump__wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="bradcaump__inner">
+                                <nav class="bradcaump-inner">
+                                  <a class="breadcrumb-item" href="index.html">Home</a>
+                                  <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
+                                  <span class="breadcrumb-item active">Products</span>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bradcaump area -->
+        <!-- Start Product Grid -->
+        <section class="htc__product__grid bg__white ptb--100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-lg-push-3 col-md-9 col-md-push-3 col-sm-12 col-xs-12">
+                        <div class="htc__product__rightidebar">
+                            <!-- Start Product View -->
+                            <div class="row">
+                                <div class="shop__grid__view__wrap">
+                                    <div role="tabpanel" id="grid-view" class="single-grid-view tab-pane fade in active clearfix">
+                                        <!-- Start Single Product -->
+                                        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12" th:each="product:${listproduct}">
+                                            <div class="category">
+                                                <div class="ht__cat__thumb">
+                                                    <a th:href="@{'/client/productdetail/' +${product.id}}">
+                                                        <img th:src="@{'/images/flags/'+${product.image}}" alt="product images">
+                                                    </a>
+                                                </div>
+                                                <div class="fr__hover__info">
+                                                    <ul class="product__action">
+                                                        <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
+
+                                                        <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
+
+                                                        <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="fr__product__inner">
+                                                    <h4><a th:href="@{'/client/productdetail/' +${product.id}}" th:text="${product.name}">Largest Water Pot</a></h4>
+                                                    <ul class="fr__pro__prize">
+                                                        <li class="old__prize" th:text="${product.mrp}"></li>
+                                                        <li th:text="${product.price}"></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" id="list-view" class="single-grid-view tab-pane fade clearfix">
+                                        <div class="col-xs-12">
+                                            <div class="ht__list__wrap">
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Product View -->
+                        </div> 
+                    </div>
+                    
+                    <div class="row" th:if="${listproductsub} != null">
+                    <div class="col-lg-9 col-lg-push-3 col-md-9 col-md-push-3 col-sm-12 col-xs-12">
+                        <div class="htc__product__rightidebar">
+                            <!-- Start Product View -->
+                            <div class="row">
+                                <div class="shop__grid__view__wrap">
+                                    <div role="tabpanel" id="grid-view" class="single-grid-view tab-pane fade in active clearfix">
+                                        <!-- Start Single Product -->
+                                        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12" th:each="product:${listproductsub}">
+                                            <div class="category">
+                                                <div class="ht__cat__thumb">
+                                                    <a th:href="@{'/client/productdetail/' +${product.id}}">
+                                                        <img th:src="@{'/images/flags/'+${product.image}}" alt="product images">
+                                                    </a>
+                                                </div>
+                                                <div class="fr__hover__info">
+                                                    <ul class="product__action">
+                                                        <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
+
+                                                        <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
+
+                                                        <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="fr__product__inner">
+                                                    <h4><a th:href="@{'/client/productdetail/' +${product.id}}" th:text="${product.name}">Largest Water Pot</a></h4>
+                                                    <ul class="fr__pro__prize">
+                                                        <li class="old__prize" th:text="${product.mrp}"></li>
+                                                        <li th:text="${product.price}"></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" id="list-view" class="single-grid-view tab-pane fade clearfix">
+                                        <div class="col-xs-12">
+                                            <div class="ht__list__wrap">
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Product View -->
+                        </div> 
+                    </div>
+                  </div>
+                    <div class="col-lg-3 col-lg-pull-9 col-md-3 col-md-pull-9 col-sm-12 col-xs-12 smt-40 xmt-40">
+                        <div class="htc__product__leftsidebar">
+                            <!-- Start Best Sell Area -->
+                            <div class="htc__recent__product">
+                                <h2 class="title__line--4">best seller</h2>
+                                <div class="htc__recent__product__inner">
+                                    <!-- Start Single Product -->
+                                    <div class="htc__best__product">
+                                        <div class="htc__best__pro__thumb">
+                                            <a href="product-details.html">
+                                                <img src="images/product-2/sm-smg/1.jpg" alt="small product">
+                                            </a>
+                                        </div>
+                                        <div class="htc__best__product__details">
+                                            <h2><a href="product-details.html">Product Title Here</a></h2>
+                                            <ul class="rating">
+                                                <li><i class="icon-star icons"></i></li>
+                                                <li><i class="icon-star icons"></i></li>
+                                                <li><i class="icon-star icons"></i></li>
+                                                <li class="old"><i class="icon-star icons"></i></li>
+                                                <li class="old"><i class="icon-star icons"></i></li>
+                                            </ul>
+                                            <ul  class="pro__prize">
+                                                <li class="old__prize">$82.5</li>
+                                                <li>$75.2</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Product -->
+                                    <!-- Start Single Product -->
+                                    <div class="htc__best__product">
+                                        <div class="htc__best__pro__thumb">
+                                            <a href="product-details.html">
+                                                <img src="images/product-2/sm-smg/2.jpg" alt="small product">
+                                            </a>
+                                        </div>
+                                        <div class="htc__best__product__details">
+                                            <h2><a href="product-details.html">Product Title Here</a></h2>
+                                            <ul class="rating">
+                                                <li><i class="icon-star icons"></i></li>
+                                                <li><i class="icon-star icons"></i></li>
+                                                <li><i class="icon-star icons"></i></li>
+                                                <li class="old"><i class="icon-star icons"></i></li>
+                                                <li class="old"><i class="icon-star icons"></i></li>
+                                            </ul>
+                                            <ul  class="pro__prize">
+                                                <li class="old__prize">$82.5</li>
+                                                <li>$75.2</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Product -->
+                                    <!-- Start Single Product -->
+                                    <div class="htc__best__product">
+                                        <div class="htc__best__pro__thumb">
+                                            <a href="product-details.html">
+                                                <img src="images/product-2/sm-smg/1.jpg" alt="small product">
+                                            </a>
+                                        </div>
+                                        <div class="htc__best__product__details">
+                                            <h2><a href="product-details.html">Product Title Here</a></h2>
+                                            <ul class="rating">
+                                                <li><i class="icon-star icons"></i></li>
+                                                <li><i class="icon-star icons"></i></li>
+                                                <li><i class="icon-star icons"></i></li>
+                                                <li class="old"><i class="icon-star icons"></i></li>
+                                                <li class="old"><i class="icon-star icons"></i></li>
+                                            </ul>
+                                            <ul  class="pro__prize">
+                                                <li class="old__prize">$82.5</li>
+                                                <li>$75.2</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Product -->
+                                </div>
+                            </div>
+                            <!-- End Best Sell Area -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Product Grid -->
+        <!-- Start Brand Area -->
+ 
+        <!-- End Banner Area -->
+        <!-- End Banner Area -->
+        <!-- Start Footer Area -->
+       <footer th:replace="user/bottom ::bottom"></footer>
+        <!-- End Footer Style -->
+    </div>
+    <!-- Body main wrapper end -->
+
+    <!-- Placed js at the end of the document so the pages load faster -->
+
+    <!-- jquery latest version -->
+    <script th:src="@{/client/js/vendor/jquery-3.2.1.min.js}"></script>
+    <!-- Bootstrap framework js -->
+    <script th:src="@{/client/js/bootstrap.min.js}"></script>
+    <!-- All js plugins included in this file. -->
+    <script th:src="@{/client/js/plugins.js}"></script>
+    <script th:src="@{/client/js/slick.min.js}"></script>
+    <script th:src="@{/client/js/owl.carousel.min.js}"></script>
+    <!-- Waypoints.min.js. -->
+    <script th:src="@{/client/js/waypoints.min.js}"></script>
+    <!-- Main js file that contents all jQuery plugins activation. -->
+    <script th:src="@{/client/js/main.js}"></script>
+
+</body>
+
+</html>

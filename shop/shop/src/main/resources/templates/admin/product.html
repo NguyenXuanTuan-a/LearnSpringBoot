@@ -1,0 +1,78 @@
+<!doctype html>
+<html class="no-js" lang="">
+   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Product</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" th:href="@{/assets/css/normalize.css}">
+      <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+      <link rel="stylesheet" th:href="@{/assets/css/font-awesome.min.css}">
+      <link rel="stylesheet" th:href="@{/assets/css/themify-icons.css}">
+      <link rel="stylesheet" th:href="@{/assets/css/pe-icon-7-filled.css}">
+      <link rel="stylesheet" th:href="@{/assets/css/flag-icon.min.css}">
+      <link rel="stylesheet" th:href="@{/assets/css/cs-skin-elastic.css}">
+      <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+      <link th:href='@{https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800}' rel='stylesheet' type='text/css'>
+   </head>
+   <body>
+      <div th:replace="admin/menu :: menu"></div>
+      <div id="right-panel" class="right-panel">
+      <div th:replace="admin/header :: header"></div>
+         <div class="content pb-0">
+            <div class="orders">
+               <div class="row">
+                  <div class="col-xl-12">
+                     <div class="card">
+                        <div class="card-body">
+                           <h4 class="box-title">Product</h4>
+                        </div>
+                        <a th:text="Add" th:href="@{/admin/addproduct}"></a>
+                        <div class="card-body--">
+                           <div class="table-stats order-table ov-h">
+                              <table class="table ">
+                                 <thead>
+                                    <tr>
+                                       <th>ID</th>
+                                       <th>Name</th>
+                                       <th>Image</th>
+                                       <th>Mrp</th>
+                                       <th>Price</th>
+                                       <th>Qty</th>
+                                       <th>Status</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr th:each="pro : ${product}">
+                                       <td th:text="${pro.id}"></td>
+                                       <td><span th:text="${pro.name}"></span></td>
+                                       <td><img alt="" th:src="@{'/images/flags/' +${pro.image}}"></td>
+                                       <td><span th:text="${pro.mrp}"></span></td>
+                                       <td><span th:text="${pro.price}"></span></td>
+                                       <td><span th:text="${pro.qty}"></span></td>
+                                       <td>
+                                       <span class="badge badge-complete" th:if="${pro.status ==1}"><a style="color: white;" th:text="Active"  th:href="@{'/admin/checkpro/'+${pro.id}}"></a></span>
+                                       <span class="badge badge-pending" th:if="${pro.status ==0}"><a style="color: white;" th:text="Deactive" th:href="@{'/admin/checkpro/'+${pro.id}}"></a></span>
+                                       <span class="badge badge-edit"><a style="color: white;" th:text="Sửa" th:href="@{'/admin/updatepro/'+${pro.id}}"></a></span>
+                                       <span class="badge badge-delete"><a style="color: white;" th:text="Xóa" th:href="@{'/admin/deletepro/'+${pro.id}}"></span>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+		  </div>
+         <div class="clearfix"></div>
+        <footer th:replace="admin/footer :: footer"></footer>
+      </div>
+      <script th:src="@{/assets/js/vendor/jquery-2.1.4.min.js}" type="text/javascript"></script>
+      <script th:src="@{/assets/js/popper.min.js}" type="text/javascript"></script>
+      <script th:src="@{/assets/js/plugins.js}" type="text/javascript"></script>
+      <script th:src="@{/assets/js/main.js}" type="text/javascript"></script>
+   </body>
+</html>

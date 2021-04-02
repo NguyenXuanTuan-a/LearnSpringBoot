@@ -1,0 +1,301 @@
+<html th:replace="user/top :: top"></html>   
+        <!-- End Header Area -->
+         <div class="body__overlay"></div>
+        <!-- Start Offset Wrapper -->
+        <div class="offset__wrapper">
+            <!-- Start Search Popap -->
+            <div class="search__area">
+                <div class="container" >
+                    <div class="row" >
+                        <div class="col-md-12" >
+                            <div class="search__inner">
+                                <form action="#" method="get">
+                                    <input placeholder="Search here... " type="text">
+                                    <button type="submit"></button>
+                                </form>
+                                <div class="search__close__btn">
+                                    <span class="search__close__btn_icon"><i class="zmdi zmdi-close"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Search Popap -->
+            <!-- Start Cart Panel -->
+            <div class="shopping__cart">
+                <div class="shopping__cart__inner">
+                    <div class="offsetmenu__close__btn">
+                        <a href="#"><i class="zmdi zmdi-close"></i></a>
+                    </div>
+                    <div class="shp__cart__wrap">
+                        <div class="shp__single__product">
+                            <div class="shp__pro__thumb">
+                                <a href="#">
+                                    <img th:src="@{'/images/flags/'+${product.image}}" alt="product images">
+                                </a>
+                            </div>
+                            <div class="shp__pro__details">
+                                <h2><a href="product-details.html">BO&Play Wireless Speaker</a></h2>
+                                <span class="quantity">QTY: 1</span>
+                                <span class="shp__price">$105.00</span>
+                            </div>
+                            <div class="remove__btn">
+                                <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
+                            </div>
+                        </div>
+                        <div class="shp__single__product">
+                            <div class="shp__pro__thumb">
+                                <a href="#">
+                                    <img src="images/product-2/sm-smg/2.jpg" alt="product images">
+                                </a>
+                            </div>
+                            <div class="shp__pro__details">
+                                <h2><a href="product-details.html">Brone Candle</a></h2>
+                                <span class="quantity">QTY: 1</span>
+                                <span class="shp__price">$25.00</span>
+                            </div>
+                            <div class="remove__btn">
+                                <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="shoping__total">
+                        <li class="subtotal">Subtotal:</li>
+                        <li class="total__price">$130.00</li>
+                    </ul>
+                    <ul class="shopping__btn">
+                        <li><a href="cart.html">View Cart</a></li>
+                        <li class="shp__checkout"><a href="checkout.html">Checkout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End Cart Panel -->
+        </div>
+        <!-- End Offset Wrapper -->
+        <!-- Start Bradcaump area -->
+        <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.jpg) no-repeat scroll center center / cover ;">
+            <div class="ht__bradcaump__wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="bradcaump__inner">
+                                <nav class="bradcaump-inner">
+                                  <a class="breadcrumb-item" href="index.html">Home</a>
+                                  <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
+                                  <a class="breadcrumb-item" href="product-grid.html">Products</a>
+                                  <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
+                                  <span class="breadcrumb-item active" th:text="${product.name}"></span>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bradcaump area -->
+        <!-- Start Product Details Area -->
+        <section class="htc__product__details bg__white ptb--100">
+            <!-- Start Product Details Top -->
+            <div class="htc__product__details__top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
+                            <div class="htc__product__details__tab__content">
+                                <!-- Start Product Big Images -->
+                                <div class="product__big__images">
+                                    <div class="portfolio-full-image tab-content">
+                                        <div role="tabpanel" class="tab-pane fade in active" id="img-tab-1">
+                                            <img th:src="${'/images/flags/'+product.image}" alt="full-image">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Product Big Images -->
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12 smt-40 xmt-40">
+                            <div class="ht__product__dtl">
+                                <h2 th:text="${product.name}"></h2>
+                                <ul  class="pro__prize">
+                                    <li class="old__prize" th:text="${product.mrp}"></li>
+                                    <li th:text="${product.price}"></li>
+                                </ul>
+                                <p class="pro__info" th:text="${product.short_desc}"></p>
+                                <div class="ht__pro__desc">
+                                    <div class="sin__desc">
+                                        <p th:if="${product.qty == 0}" ><span>Availability:</span> Hết hàng</p>
+                                        <p th:if="${product.qty &gt; 0}" ><span>Availability:</span> Còn hàng</p>
+                                    </div>
+                                    <div class="sin__desc align--left">
+                                        <p></p>
+                                        <ul class="pro__cat__list">
+                                            <li>
+                                             <form th:action="@{/client/add-to-cart}" method="post">
+	                                <input type="hidden" name="id" th:value="${product.id }" readonly>
+	                               	<div class="tzqty"> Q.ty: <input type="number" style="width:50px" name="quantityBill" min="1" th:max="${product.qty }" value="1">
+	                                </div>
+	                                 <span class="tz-shop-detail-meta" >
+	                                    <a class="tzshopping">
+	                                        <button type="submit" class="fa fa-shopping-cart" style="height:30px;width: 30px; text-align: center;margin: 10px; background:6dd3d1;"></button>
+	                                    </a>
+	                                </span>
+	                                </form>
+                                <span th:if="${e== 'error'}">Số lượng quá lớn.</span></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Product Details Top -->
+        </section>
+        <!-- End Product Details Area -->
+        <!-- Start Product Description -->
+        <section class="htc__produc__decription bg__white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- Start List And Grid View -->
+                        <!-- End List And Grid View -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="ht__pro__details__content">
+                            <!-- Start Single Content -->
+                            <div role="tabpanel" id="description" class="pro__single__content tab-pane fade in active">
+                                <div class="pro__tab__content__inner">
+\                                    <h4 class="ht__pro__title">Description</h4>
+                                    <p th:text="${product.description}"></p>
+                                    <p th:text="${product.meta_desc}"></p>
+                                    <h4 class="ht__pro__title">Standard Featured</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in</p>
+                                </div>
+                            </div>
+                            <!-- End Single Content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Product Description -->
+        <!-- Start Product Area -->
+        <section class="htc__product__area--2 pb--100 product-details-res">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="section__title--2 text-center">
+                            <h2 class="title__line">New Arrivals</h2>
+                            <p>But I must explain to you how all this mistaken idea</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="product__wrap clearfix">
+                        <!-- Start Single Product -->
+                        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12" th:each="pro1 :${productlist}" th:if="${pro1.status==1 and pro1.id_categories==x}">
+                            <div class="category">
+                                <div class="ht__cat__thumb">
+                                    <a th:href="@{'/client/productdetail/' +${pro1.id}}">
+                                        <img th:src="@{'/images/flags/'+${pro1.image}}" alt="product images">
+                                    </a>
+                                </div>
+                                <div class="fr__hover__info">
+                                    <ul class="product__action">
+                                        <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
+
+                                        <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
+
+                                        <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="fr__product__inner">
+                                    <h4><a th:href="@{'/client/productdetail/' +${pro1.id}}" th:text="${pro1.name}"></a></h4>
+                                    <ul class="fr__pro__prize">
+                                        <li class="old__prize" th:text="${pro1.mrp}"></li>
+                                        <li th:text="${pro1.price}"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer th:replace="user/bottom ::bottom"></footer>
+        <!-- End Footer Style -->
+    </div>
+    <!-- Body main wrapper end -->
+
+    <!-- Placed js at the end of the document so the pages load faster -->
+
+    <!-- jquery latest version -->
+    <script th:src="@{/client/js/vendor/jquery-3.2.1.min.js}"></script>
+    <!-- Bootstrap framework js -->
+    <script th:src="@{/client/js/bootstrap.min.js}"></script>
+    <!-- All js plugins included in this file. -->
+    <script th:src="@{/client/js/plugins.js}"></script>
+    <script th:src="@{/client/js/slick.min.js}"></script>
+    <script th:src="@{/client/js/owl.carousel.min.js}"></script>
+    <!-- Waypoints.min.js. -->
+    <script th:src="@{/client/js/waypoints.min.js}"></script>
+    <!-- Main js file that contents all jQuery plugins activation. -->
+    <script th:src="@{/client/js/main.js}"></script>
+
+</body>
+<style>
+.tzqty{
+    padding: 10px 0;
+    margin: 0;
+    color: #000000;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 25.2px;
+}
+.tzqty strong{
+    display: inline-block;
+    padding: 5px 17px;
+    margin: 0 0 0 86px;
+    color: #000000;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 25.2px;
+    border: 0;
+    background: #eeeeee;
+    text-align: center;
+}
+	.tz-shop-detail-meta{
+    position: relative;
+    display: block;
+    margin-top: 40px;
+}
+.tz-shop-detail-meta a:first-child{
+    margin: 0;
+}
+.tz-shop-detail-meta a{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    text-align: center;
+    margin-left: 7px;
+}
+.tz-shop-detail-meta a i{
+    font-size: 20px;
+    line-height: 50px;
+    color: #fff;
+}
+</style>
+</html>

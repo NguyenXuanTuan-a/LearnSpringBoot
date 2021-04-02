@@ -1,0 +1,153 @@
+<html th:replace="user/top :: top"></html>   
+        <!-- End Header Area -->
+
+        <div class="body__overlay"></div>
+        <!-- Start Offset Wrapper -->
+        <div class="offset__wrapper">
+            <!-- Start Search Popap -->
+            <div class="search__area">
+                <div class="container" >
+                    <div class="row" >
+                        <div class="col-md-12" >
+                            <div class="search__inner">
+                                <form action="#" method="get">
+                                    <input placeholder="Search here... " type="text">
+                                    <button type="submit"></button>
+                                </form>
+                                <div class="search__close__btn">
+                                    <span class="search__close__btn_icon"><i class="zmdi zmdi-close"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Offset Wrapper -->
+        <!-- Start Bradcaump area -->
+        <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.jpg) no-repeat scroll center center / cover ;">
+            <div class="ht__bradcaump__wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="bradcaump__inner">
+                                <nav class="bradcaump-inner">
+                                  <a class="breadcrumb-item" href="index.html">Home</a>
+                                  <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
+                                  <span class="breadcrumb-item active">Login</span>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bradcaump area -->
+        <!-- Start Contact Area -->
+        <section class="htc__contact__area ptb--100 bg__white">
+            <div class="container">
+                <div class="row">
+					<div class="col-md-6">
+						<div class="contact-form-wrap mt--60">
+							<div class="col-xs-12">
+								<div class="contact-title">
+									<h2 class="title__line--6">Login</h2>
+								</div>
+							</div>
+							<div class="col-xs-12">
+								<form id="contact-form" th:action="@{/login}" method="post">
+									<div class="single-contact-form">
+										<div class="contact-box name">
+											<input type="text" name="username" placeholder="UserName*" style="width:100%">
+										</div>
+									</div>
+									<div class="single-contact-form">
+										<div class="contact-box name">
+											<input type="password" name="password" placeholder="Password*" style="width:100%">
+										</div>
+									</div>
+									<p th:if="${e} != null" style="color: red ;margin-top:20px; ">Tai khoan hoac mat khau deo dung</p>
+									<div class="contact-btn">
+										<button type="submit" class="fv-btn">Login</button>
+									</div>
+								</form>
+								<div class="form-output">
+									<p class="form-messege"></p>
+								</div>
+							</div>
+						</div> 
+                
+				</div>
+				
+
+					<div class="col-md-6">
+						<div class="contact-form-wrap mt--60">
+							<div class="col-xs-12">
+								<div class="contact-title">
+									<h2 class="title__line--6">Register</h2>
+								</div>
+							</div>
+							<div class="col-xs-12">
+								<form id="contact-form" th:action="@{/client/add-user}" method="post">
+									<div class="single-contact-form">
+										<div class="contact-box name">
+											<input type="text" name="name" placeholder="Your Name" style="width:100%">
+										</div>
+									</div>
+									<div class="single-contact-form">
+										<div class="contact-box name">
+											<input type="text" name="username" placeholder="UserName" style="width:100%">
+										</div>
+									</div>
+									<div class="single-contact-form">
+										<div class="contact-box name">
+											<input type="password" name="password" placeholder="Password" style="width:100%">
+										</div>
+									</div>
+									<div class="single-contact-form">
+										<div class="contact-box name">
+											<input type="text" name="mobile" placeholder="Mobile" style="width:100%">
+										</div>
+									</div>
+									<div class="single-contact-form">
+										<div class="contact-box name">
+											<input type="text" name="email" placeholder="Email" style="width:100%">
+										</div>
+									</div>
+									
+									<div class="contact-btn">
+										<button type="submit" class="fv-btn">Register</button>
+									</div>
+								</form>
+								<div class="form-output">
+									<p class="form-messege"></p>
+								</div>
+							</div>
+						</div> 
+                
+				</div>
+					
+            </div>
+        </section>
+    </div>
+    <!-- Body main wrapper end -->
+ <footer th:replace="user/bottom ::bottom"></footer>
+    <!-- Placed js at the end of the document so the pages load faster -->
+
+    
+    <!-- jquery latest version -->
+    <script th:src="@{/client/js/vendor/jquery-3.2.1.min.js}"></script>
+    <!-- Bootstrap framework js -->
+    <script th:src="@{/client/js/bootstrap.min.js}"></script>
+    <!-- All js plugins included in this file. -->
+    <script th:src="@{/client/js/plugins.js}"></script>
+    <script th:src="@{/client/js/slick.min.js}"></script>
+    <script th:src="@{/client/js/owl.carousel.min.js}"></script>
+    <!-- Waypoints.min.js. -->
+    <script th:src="@{/client/js/waypoints.min.js}"></script>
+    <!-- Main js file that contents all jQuery plugins activation. -->
+    <script th:src="@{/client/js/main.js}"></script>
+
+</body>
+
+</html>

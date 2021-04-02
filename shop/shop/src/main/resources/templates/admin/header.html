@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Menu</title>
+</head>
+<body>
+	<header id="header" class="header" th:fragment="header">
+            <div class="top-left">
+            </div>
+            <div class="top-right">
+               <div class="header-menu">
+                  <div class="user-area dropdown float-right">
+                     <a th:href="@{#}" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="'Admin '+${session.user}"></a>
+                     <div class="user-menu dropdown-menu">
+                        <a class="nav-link" th:href="@{/logout}"><i class="fa fa-power-off"></i>Logout</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+</body>
+</html>
